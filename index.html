@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Home Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#1d2671,#c33764);
+  min-height:100vh;
+}
+
+/* NAVBAR */
+nav{
+  background:#111;
+  padding:12px;
+  text-align:center;
+}
+nav a{
+  color:#ccc;
+  margin:0 12px;
+  text-decoration:none;
+  font-size:14px;
+}
+nav a:hover{
+  color:#fff;
+}
+
+.section{
+  display:none;
+  height:85vh;
+  justify-content:center;
+  align-items:center;
+}
+.section.active{
+  display:flex;
+}
+
+
+.card{
+  background:#fff;
+  width:320px;
+  padding:25px;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+  animation:fade 0.5s ease;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:scale(0.9);}
+  to{opacity:1; transform:scale(1);}
+}
+
+.card h2{
+  margin-bottom:10px;
+}
+.card p{
+  font-size:14px;
+  color:#555;
+  margin-bottom:15px;
+}
+
+input{
+  width:100%;
+  padding:8px;
+  margin:6px 0;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+button{
+  width:100%;
+  padding:8px;
+  background:#1d2671;
+  color:#fff;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+button:hover{
+  background:#c33764;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a onclick="openPage('home')">Home</a>
+  <a onclick="openPage('about')">About</a>
+  <a onclick="openPage('blog')">Blog</a>
+  <a onclick="openPage('contact')">Contact</a>
+  <a onclick="openPage('signup')">Signup</a>
+  <a onclick="openPage('login')">Login</a>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="section active">
+  <div class="card">
+    <h2>🏠 Smart Home Dashboard</h2>
+    <p>Monitor and control smart devices easily.</p>
+    <button onclick="alert('Smart Home Activated ⚙️')">
+      Activate System
+    </button>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="section">
+  <div class="card">
+    <h2>About Us</h2>
+    <p>This Smart Home Dashboard is developed using HTML, CSS, and JavaScript.</p>
+  </div>
+</div>
+
+<!-- BLOG -->
+<div id="blog" class="section">
+  <div class="card">
+    <h2>Blog</h2>
+    <p>Smart homes improve security, comfort, and energy efficiency.</p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="section">
+  <div class="card">
+    <h2>Contact</h2>
+    <input placeholder="Your Name">
+    <input placeholder="Email">
+    <input placeholder="Message">
+    <button onclick="alert('Message Sent ✅')">Send</button>
+  </div>
+</div>
+
+<!-- SIGNUP -->
+<div id="signup" class="section">
+  <div class="card">
+    <h2>Signup</h2>
+    <input placeholder="Username">
+    <input placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="openPage('login')">Register</button>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div id="login" class="section">
+  <div class="card">
+    <h2>Login</h2>
+    <input placeholder="Username">
+    <input type="password" placeholder="Password">
+    <button onclick="alert('Login Successful 🎉')">Login</button>
+  </div>
+</div>
+
+<script>
+function openPage(page){
+  document.querySelectorAll('.section').forEach(sec=>{
+    sec.classList.remove('active');
+  });
+  document.getElementById(page).classList.add('active');
+}
+</script>
+
+</body>
+</html>
